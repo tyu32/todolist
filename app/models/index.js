@@ -32,11 +32,22 @@ fs
     })
 
 
-Object.keys(db).forEach(function(modelName) {
-    if (db[modelName].associate) {
-        db[modelName].associate(db);
-    }
-});
+// Object.keys(db).forEach(function(modelName) {
+//     console.log(db[modelName].associate + "++++++++++++++++++++++++++++++++");
+    
+//     if (db[modelName].associate) {
+//         console.log("modelName++++++++++++++++++++++++++++++++");
+        
+//         db[modelName].associate(db);
+//     }
+// });
+const Task = db.Task;
+const Category = db.Category;
+const User = db.User;
+// User.hasMany(Category);
+// Category.belongsTo(User);
+Category.hasMany(Task);
+Task.belongsTo(Category);
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;

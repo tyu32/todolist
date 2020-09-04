@@ -3,13 +3,7 @@ module.exports = function(sequelize, DataTypes) {
         title: DataTypes.STRING,
         note: DataTypes.STRING,
         complete: DataTypes.BOOLEAN
-    }, {
-        classMethods: {
-            associate: function(models) {
-                Task.belongsTo(models.User);
-                Task.belongsTo(models.Category);
-            }
-        }
     })
+    
     return Task;
 };

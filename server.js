@@ -34,11 +34,18 @@ Task.create(t)
         console.log("message:" + err.message);
     });
 
+    //------------------------------------------------------------------------
 app.get("/", (req, res) => {
     res.json({ message: "Welcome"});
 });
 
 require('./app/routes/turorial.routes')(app);
+const categoriesRouter = require('./app/routes/categoriesRouter');
+//app.use('/', categoriesRouter);
+require('./app/routes/categoriesRouter')(app);
+
+//app.use("/", require('./app/routes/testRouter'));
+require('./app/routes/testRouter')(app);
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
