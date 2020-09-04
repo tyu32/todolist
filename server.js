@@ -40,9 +40,8 @@ app.get("/", (req, res) => {
 });
 
 require('./app/routes/turorial.routes')(app);
-const categoriesRouter = require('./app/routes/categoriesRouter');
-//app.use('/', categoriesRouter);
 require('./app/routes/categoriesRouter')(app);
+require('./app/routes/tasksRouter')(app);
 
 //app.use("/", require('./app/routes/testRouter'));
 require('./app/routes/testRouter')(app);

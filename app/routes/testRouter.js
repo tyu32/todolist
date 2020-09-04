@@ -1,12 +1,3 @@
-// const express = require('express');
-// router = express.Router();
-// const {tt, bb}  = require('../controllers/testController');
-
-// router.post("/test", bb)
-
-// app.use("/", router)
-
-// module.exports = app;
 const {tt, bb} = require('../controllers/testController')
 const { createCategory } = require('../controllers/categoriesController')
 
