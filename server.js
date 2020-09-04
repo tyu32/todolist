@@ -17,6 +17,23 @@ const db = require('./app/models');
 
 db.sequelize.sync();
 
+
+//test now
+const Task = db.Task;
+const t = {
+    title: "awesome",
+    note: "note",
+    complete: false
+}
+
+Task.create(t)
+    .then(data => {
+        console.log("succeed");
+    })
+    .catch(err => {
+        console.log("message:" + err.message);
+    });
+
 app.get("/", (req, res) => {
     res.json({ message: "Welcome"});
 });
