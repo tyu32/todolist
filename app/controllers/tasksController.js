@@ -1,15 +1,6 @@
-const Sequelize = require('sequelize');
 const models = require('../models');
-const services = require('../services/services');
 
 module.exports = {
-    getTasks: (categoryId) => {
-        return models.Task.findAll({
-            where: {
-                CategoryId: CategoryId
-            }
-        });
-    },
     addTask: (req, res) => {
         const title = req.body.title;
         const note = req.body.note;

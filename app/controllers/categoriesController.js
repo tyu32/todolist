@@ -1,24 +1,7 @@
-const Sequelize = require('sequelize');
 const models = require('../models');
-// const services = require('../services/services');
 
 module.exports = {
-    getAllCategories: () => {
-        return models.Category.findAll();
-    },
-    getCategory: (id) => {
-        return models.Category.findOne({
-            where: {
-                id: id
-            }
-        });
-    },
     createCategory: (req, res) => {
-        console.log("createCategory");
-        
-        // return models.Category.create({
-        //     title: req.query.title
-        // });
         models.Category.create({
             title: req.body.title
         })
@@ -28,14 +11,6 @@ module.exports = {
         });
     },
     deleteCategory: (req, res) => {
-        console.log("+++++++++++++++++++++++++++++++++++++++++++");
-        
-        // return models.Category.destroy({
-        //     where: {
-        //         id: req.query.id
-        //     }
-
-        // })
         const id = req.body.id
         models.Category.destroy({
             where: {

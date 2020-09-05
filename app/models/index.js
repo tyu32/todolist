@@ -25,34 +25,17 @@ fs
     })
     .forEach(function(file) {
         console.log(path.join(__dirname, file));
-        
-        //var model = sequelize['import'](path.join(__dirname, file));
         var model = require(path.join(__dirname, file))(sequelize, Sequelize);
         db[model.name] = model;
     })
 
-
-// Object.keys(db).forEach(function(modelName) {
-//     console.log(db[modelName].associate + "++++++++++++++++++++++++++++++++");
-    
-//     if (db[modelName].associate) {
-//         console.log("modelName++++++++++++++++++++++++++++++++");
-        
-//         db[modelName].associate(db);
-//     }
-// });
 const Task = db.Task;
 const Category = db.Category;
-const User = db.User;
-// User.hasMany(Category);
-// Category.belongsTo(User);
+
 Category.hasMany(Task);
 Task.belongsTo(Category);
 
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
-
-// db.tutorials = require('./tutorial.model')(sequelize, Sequelize);
-// db.todoItems = require('./todoItem.model')(sequelize, Sequelize);
 
 module.exports = db;
