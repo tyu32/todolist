@@ -1,9 +1,11 @@
 const models = require('../models');
+//const { Json } = require('sequelize/types/lib/utils');
 
 module.exports = {
     createCategory: (req, res) => {
+        console.log(req.body);
         models.Category.create({
-            title: req.body.title
+            title: req.body.data.title
         })
         .then(data => res.send(data))
         .catch(err => {
@@ -11,7 +13,10 @@ module.exports = {
         });
     },
     deleteCategory: (req, res) => {
+        //var test = Json.stringify(req.body)
+        console.log("delete category: "+req.body.id);
         const id = req.body.id
+
         models.Category.destroy({
             where: {
                 id: id
